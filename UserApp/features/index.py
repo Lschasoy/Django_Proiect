@@ -12,6 +12,11 @@ def access_url(step, url):
 	response = world.browser.get(url)
 	world.dom = html.fromstring(response.content)
 	@step(r'I see the header "(.*)"')
+
+def see_header(step, text):
+	header = world.dom.cssselect('title')[0]
+	assert header.text == text
+
 def see_header(step, text):
 	header = world.dom.cssselect('title')[0]
 	assert header.text == text
