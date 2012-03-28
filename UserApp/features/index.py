@@ -4,19 +4,25 @@ from django.test.client import Client
 from nose.tools import assert_equals
 
 @before.all
-def set_browser():
-	world.browser = Client()
-	@step(r'I access the url "(.*)"')
+def set_attr():
+    @attr = { 'name': 'Example User', 'email': 'user@example.com' }
 
-def access_url(step, url):
-	response = world.browser.get(url)
-	world.dom = html.fromstring(response.content)
-	@step(r'I see the header "(.*)"')
+@step('I see the Username "(.*)"')
+def username (step, cadena):
+    user = User(@attr.merge('name': cadena))
 
-def see_header(step, text):
-	header = world.dom.cssselect('title')[0]
-	assert header.text == text
+@step('I see the Email "(.*)"')
+def useremail (step, cadena):
+    user = User(@attr.merge('email': cadena))
+    check_valid(no_email_user)
 
-def see_header(step, text):
-	header = world.dom.cssselect('title')[0]
-	assert header.text == text
+@step('I check it is correct')
+def check_correct(step):
+    check_valid(user)  
+
+@step('I create the user')
+def create_user(step):
+    User.merge!(@attr)
+
+
+
