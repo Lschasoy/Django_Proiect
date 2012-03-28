@@ -1,0 +1,4 @@
+Feature: Rocking with lettuce and django
+	Scenario: home
+		Given I access the url "/Pages/"
+		Then I see the header "titulo"
