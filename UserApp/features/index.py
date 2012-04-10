@@ -8,17 +8,18 @@ from django.contrib.auth.models import User
 def set_attr():
     name = ''
     email = ''
-    user = User.objects.create_user(name, email, '')
+    password = ''
+    user = User.objects.create_user(name, email, password)
 
 @step('I see the Username (".*")')
 def username (step, cadena):
     name = cadena
-    user = User.objects.create_user(name, email, '1234')
+    user = User.objects.create_user(name, email, password)
 
 @step('I see the Email (".*")')
 def useremail (step, cadena):
     email = cadena
-    user = User.objects.create_user(name, email, '1234')
+    user = User.objects.create_user(name, email, password)
 
 @step('I check it is correct')
 def check_correct(step):
