@@ -1,4 +1,6 @@
 # Django settings for Django_Project project.
+import os
+import django
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,10 +11,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '~/djando_Test_DB.db',          # Or path to database file if using sqlite3.
+        'NAME': 'testDB.db',  # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
