@@ -1,20 +1,24 @@
 from lettuce import *
-from lxml import html
-from django.test.client import Client
-from nose.tools import assert_equals
+#from lxml import html
+#from django.test.client import Client
+#from nose.tools import assert_equals
+from django.contrib.auth.models import User
 
 @before.all
 def set_attr():
-    @attr = { 'name': 'Example User', 'email': 'user@example.com' }
+    name = ''
+    email = ''
+    user = User.objects.create_user(name, email, '')
 
-@step('I see the Username "(.*)"')
+@step('I see the Username (".*")')
 def username (step, cadena):
-    user = User(@attr.merge('name': cadena))
+    name = cadena
+    user = User.objects.create_user(name, email, '1234')
 
-@step('I see the Email "(.*)"')
+@step('I see the Email (".*")')
 def useremail (step, cadena):
-    user = User(@attr.merge('email': cadena))
-    check_valid(no_email_user)
+    email = cadena
+    user = User.objects.create_user(name, email, '1234')
 
 @step('I check it is correct')
 def check_correct(step):
@@ -22,7 +26,4 @@ def check_correct(step):
 
 @step('I create the user')
 def create_user(step):
-    User.merge!(@attr)
-
-
-
+    user.save()
