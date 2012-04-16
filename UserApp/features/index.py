@@ -1,17 +1,36 @@
 from lettuce import *
-from lxml import html
-from django.test.client import Client
-from nose.tools import assert_equals
+from Django_Project.UserApp.models import *
 
 @before.all
-def set_browser():
-	world.browser = Client()
-	@step(r'I access the url "(.*)"')
+def set_attr():
+	name = ''
+	email = ''
+	password = ''
+#======================================
+@step('I see the Username (".*")')
+def name (step, cadena):
+    name = cadena
 
-def access_url(step, url):
-	response = world.browser.get(url)
-	world.dom = html.fromstring(response.content)
-	@step(r'I see the header "(.*)"')
-def see_header(step, text):
-	header = world.dom.cssselect('title')[0]
-	assert header.text == text
+def username(self):
+	return self.__name  
+
+#======================================
+@step('I see the Email (".*")')
+def useremail (step, cadena):
+    email = cadena
+
+def email(self):
+	return self.__email
+
+#======================================
+@step('I see the Password (".*")')
+def userpass (step, cadena):
+    password = cadena
+
+def password(self):
+	return self.__password
+
+
+@step('I create the user')
+def create_users(step):
+	UserManager.create_user(name, email, password)
