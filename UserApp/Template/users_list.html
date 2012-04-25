@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de Usuarios {% endblock %}
+
+{% block content %}
+	<p> Lista de usuarios </p>
+	{% for lista in lista_usuarios %}
+		<p> {{lista.name}} - {{lista.email}} -- {{lista.create_at}}</p>
+	{% endfor %}
+	
+{% endblock %}
