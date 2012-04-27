@@ -18,13 +18,31 @@ def useremail (step, cadena):
 @step('I see the Password (".*")')
 def userpass (step, cadena):
 	password = cadena
-	password = 'sdada'
 	return password
-
-@step('I create the user')
-def create_users(step):
-	nombre = 'Marcos'
-	mail = 'jose'
+#======================================
+@step('I see the Password confirmation (".*")')
+def confirmar_pass (step, cadena):
+	passw = cadena
 	user = Usuario()
-	user.create_user(nombre,str(useremail),pas)
-	
+	user.confirm_p(passw)
+
+@step('I reject the short password (".*")')
+def short_pass(step, cadena):
+	passw = cadena
+	user = Usuario()
+	user.short_p(passw)
+
+@step('I reject the long password (".*")')
+def long_pass(step, cadena):
+	passw = cadena
+	user = Usuario()
+	user.long_p(passw)
+
+# nos falta validar todos los campos
+@step('I create the user')
+def create_users (step):
+	nombre = 'Marcos'
+	email = 'jose'
+	pas = 'aaaaaa'
+	user = Usuario()
+	user.create(nombre,email,pas)
