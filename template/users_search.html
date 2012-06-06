@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} Usuario {% endblock %}
+
+{% block content %}
+	<p> Usuario con id {{id_user}} </p>
+	<p> {{usuario.name}} - {{usuario.email}} -- {{usuario.create_at}}</p>
+	<p>Micropost</p>
+	{% for lista in micropost %}
+		<p>{{lista.texto}}</p>
+	{% endfor %}
+{% endblock %}

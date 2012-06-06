@@ -1,0 +1,22 @@
+    <html>
+    <head>
+
+    <title>Search</title>
+
+    </head>
+    <body>
+	{% if error %}
+	<p style=”color: red;”>Introduzca un nombre</p>
+	{% endif %}
+	
+    <form action="/create/" method="post">{% csrf_token %}
+
+    <input type="text" name="qname">
+    <input type="text" name="qemail">
+    <input type="text" name="qpass">
+    <input type="submit" value="crear">
+
+    </form>
+
+    </body>
+    </html>

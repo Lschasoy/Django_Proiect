@@ -1,0 +1,365 @@
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #B50044 url(images/img01.jpg) repeat left top;
+	text-align: justify;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #4C4C4C;
+}
+
+h1, h2, h3 {
+	font: 1.82em;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+p, ol, ul {
+	line-height: 1.67em;
+}
+
+a {
+	color: #75012D;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+hr {
+	display: none;
+}
+
+/* Header */
+
+#header {
+	width: 1000px;
+	height: 130px;
+	margin: 0px auto;
+}
+
+/* Logo */
+
+#logo {
+	float: left;
+	width: 300px;
+	padding: 10px 0 0 60px;
+}
+
+#logo h1 {
+	margin: 0;
+	padding: 40px 0 0 0px;
+	text-transform: lowercase;
+	letter-spacing: -2px;
+	font-size: 4em;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+#logo h1 a {
+	display: block;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#logo p {
+	margin: -10px 0 0 2px;
+	text-transform: uppercase;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+#logo a {
+	display: block;
+	text-decoration: none;
+	color: #FFDBEA;
+}
+
+/* Menu */
+
+#menu {
+	float: right;
+	width: 530px;
+	margin: 0 auto;
+	padding: 20px 0px 0px 0px;
+}
+
+#menu ul {
+	float: right;
+	margin: 0;
+	padding: 40px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu li a {
+	display: block;
+	float: left;
+	height: 30px;
+	margin-left: 5px;
+	background: url(images/img05.jpg) no-repeat left top;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	border: none;
+}
+
+#menu li a span {
+	display: block;
+	float: left;
+	height: 23px;
+	padding: 7px 20px 0px 20px;
+	background: url(images/img06.jpg) no-repeat right top;
+}
+
+#menu a:hover, #menu .current_page_item a {
+}
+
+#menu .current_page_item a {
+}
+
+/* Page */
+
+
+#page {
+	width: 1000px;
+	margin: 0px auto;
+	background: url(images/img04.jpg) repeat-y left top;
+}
+
+#page-bgtop {
+	background: url(images/img02.jpg) no-repeat left top;
+}
+
+#page-bgbtm {
+	overflow: hidden;
+	width: 970px;
+	margin: 0px auto;
+	padding: 20px 30px 40px 0px;
+	background: url(images/img03.jpg) no-repeat left bottom;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 650px;
+}
+
+/* Post */
+
+.post {
+	margin-top: 40px;
+}
+
+.post .date {
+	float: left;
+	width: 79px;
+	height: 85px;
+	margin: 0;
+	margin-top: 6px;
+	margin-right: 20px;
+	padding-top: 20px;
+	background: url(images/img07.jpg) no-repeat left top;
+	line-height: normal;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 11px;
+	font-weight: bold;
+	color: #75012D;
+}
+
+.post .date b {
+	margin: 0;
+	padding: 0;
+	display: block;
+	letter-spacing: -2px;
+	font-size: 32px;
+	
+}
+
+.post .title {
+	margin: 0;
+	padding: 15px 0 0 0;
+	margin-left: 10px;
+	padding-left: 10px;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	font-size: 2.8em;
+	color: #75012D;
+}
+
+.post .title a {
+	color: #B50045;
+}
+
+.post .title h2 {
+	padding: 0;
+	margin: 0;
+}
+
+.post .hr1 {
+}
+
+.post .meta {
+	margin: 0 0 10px 100px;
+	padding: 3px 10px 5px 0px;
+	line-height:normal;
+	text-transform: uppercase;
+	color: #4C4C4C;
+}
+
+.post .meta p {
+}
+
+.post .meta a {
+	color: #4C4C4C;
+}
+
+.post .entry {
+	margin: 0;
+	padding: 0 0 0px 100px;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 250px;
+	padding-top: 40px;
+	margin-left: 30px;
+	margin-bottom: 20px;
+	color: #FFFFFF;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin-bottom: 30px;
+}
+
+#sidebar li ul {
+	margin-bottom: 20px;
+}
+
+#sidebar li li {
+	margin: 0px 0px 0px 25px;
+	padding: 4px 0 4px 0;
+	border-bottom: 1px dashed #94003B;
+}
+
+#sidebar li li a {
+}
+
+#sidebar h2 {
+	padding: 0px 0px 0px 25px;
+	margin: 0 0 15px 0;
+	background: url(images/img08.jpg) no-repeat left 4px;
+	letter-spacing: -1px;
+	text-transform: lowercase;
+	font-size: 22px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+#sidebar a {
+	text-decoration: none;
+	color: #FFC4DC;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+}
+
+/* Calendar */
+
+#calendar_wrap {
+	border-top: 1px dashed #666633;
+}
+
+#calendar caption {
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+#calendar table {
+	width: 100%;
+	border: 0px solid #E8E8E8;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#calendar thead {
+	background: #514F42;
+	text-align: center;
+}
+
+#calendar tbody td {
+	border: 1px solid #514F42;
+	text-align: center;
+}
+
+#today {
+	font-weight: bold;
+}
+
+#prev {
+}
+
+#next {
+	text-align: right;
+}
+
+/* Footer */
+
+#wrapper2 {
+}
+
+#footer {
+	width: 940px;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-transform: uppercase;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+#footer a {
+	text-decoration: none;
+	font-size: 10px;
+	color: #F5A9C6;
+}
+
+#legal {
+	clear: both;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 10px;
+	color: #F5A9C6;
+}
+
+#legal a {
+	border-bottom: 1px dotted #DA2128;
+	text-decoration: none;
+}

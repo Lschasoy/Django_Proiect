@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="static/scripts/wufoo2.js"></script>
+   
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">FaceTweet</a>
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> Username
+            </a>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="/users/">Usuarios</a></li>
+              <li><a href="/logout/">Logout</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="/siguiendo/">Siguiendo({{count_sig}} )</a></li>
+              <li class="nav-header"><a href="/seguido/">Seguidores( {{count_seg}} )</a></li>
+
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <h1>Hello, {{user_tl.name}}</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+           
+           <form id="form2" name="form2" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate
+							action="/crear_post/">
+
+							<ul>
+
+							<li id="foli1" 
+							class="notranslate      "><label class="desc" id="title1" for="Field1">
+
+							</label>
+
+							<div>
+							<textarea id="Field1" 
+							name="qtext" 
+							class="field textarea small" 
+							spellcheck="true" 
+							rows="10" cols="50" 
+							tabindex="1" 
+							onkeyup="validateRange(1, 'character');"
+							 >Publicar un nuevo FaceTweet ...</textarea>
+
+							<label for="Field1">Must be between <var id="rangeMinMsg1">1</var> and <var id="rangeMaxMsg1">140</var> characters.&nbsp;&nbsp;&nbsp; <em class="currently">Currently Used: <var id="rangeUsedMsg1">31</var> characters.</em></label>
+							</div>
+							</li> <li class="buttons ">
+							<div>
+
+												<input id="saveForm" name="saveForm" class="btn btn-primary btn-large" 
+								type="submit" value="Publicar"
+							 /></div>
+							</li>
+
+							<li class="hide">
+							<label for="comment">Do Not Fill This Out</label>
+							<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+							<input type="hidden" id="idstamp" name="idstamp" value="HhGuzlZ47OH5LPjYKsoxmwRb9mFJMRqRpbgXpkhT0os=" />
+							</li>
+							</ul>
+							</form> 
+            
+          </div>
+          {%for lista in post_amigos%}
+          <div class="row-fluid">
+
+            <div class="span9">
+              <h2>{{lista.1.1}}</h2>
+              <p>{{lista.1.0}}</p>
+              <p>{{lista.0}}</p>
+            </div><!--/span-->
+
+          </div><!--/row-->
+          {%endfor%}
+         
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+-->
+
+  </body>
+</html>

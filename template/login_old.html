@@ -1,0 +1,21 @@
+    <html>
+    <head>
+
+    <title>Search</title>
+
+    </head>
+    <body>
+	{% if error %}
+	<p style=”color: red;”>Introduzca un nombre</p>
+	{% endif %}
+	
+    <form action="/login_u/" method="post">{% csrf_token %}
+
+    <input type="text" name="qname">
+    <input type="text" name="qpass">
+    <input type="submit" value="login">
+
+    </form>
+
+    </body>
+    </html>
