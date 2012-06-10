@@ -26,7 +26,7 @@ def userpass (step, cadena):
 def confirmar_pass (step, cadena):
 	passw = cadena
 	user = Usuario()
-	user.confirm_p(passw)
+	user.confirm_p(passw,passw)
 
 @step('I reject the short password (".*")')
 def short_pass(step, cadena):
@@ -49,6 +49,6 @@ def create_users (step):
 		print "user.email= ", user.email
 		print "user.password = ", user.password
 		user_ = Usuario()
-		user_.create(user.name, user.email, user.password)
+		user_.create(user.name, user.email, user.password,user.password,"")
 
 

@@ -10,6 +10,12 @@ def user (step,id_u):
 def micro (step, texto):
 	text= texto
 	return text
+@step('And I test the text does not exceed 140 character (".*")')
+def text_size(step,texto):
+	if (len(texto) <= 140):
+		return True
+	else:
+		return False
 
 @step('I create the post')
 def crear_micro (step):

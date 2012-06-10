@@ -6,13 +6,14 @@ from django import forms
 import factory
 
 
+
 class Usuario(models.Model):
 	name= models.CharField(blank = False, unique = True, null = False, max_length= 50)
 	email= models.EmailField(max_length= 50)
 	password= models.CharField(max_length= 50)
 	create_at= models.DateTimeField(auto_now_add=True)
 	updated_at= models.DateTimeField(auto_now=True)
-	#gravatar_img = models.URLField(max_length=200)
+	gravatar_img = models.URLField(max_length=200)
 	
 	def __unicode__(self):
 		return self.name
@@ -31,29 +32,29 @@ class Usuario(models.Model):
 			raise ValueError('El password debe de ser menor de 41 caracteres.')
 			return False
 
-	def confirm_p(step,passw1):
-		passw2 = raw_input("Escriba la confirmacion del password: ")
+	def confirm_p(step,passw1,passw2):
 		if (passw1 == passw2):
 			return True
 		else:
 			raise ValueError('Fallo en la confirmacion del password.')
 			return False
 	
-	def create(self,userName, userEmail, userPass):
+	def create(self,userName, userEmail, userPass, userCpass, userImg):
 		if not userName:
 			raise ValueError('EL NOMBRE DE USUARIO, DEBE SER ESTABLECIDO')
-		#print "userName: ",userName, "Tipo userName: ",type(userName)
-		#print "userEmail: ",userEmail, "Tipo userEmail: ",type(userEmail)
-		#print "userPass: ",userPass, "Tipo userPass: ",type(userPass)
+
 		n = Usuario.objects.filter(name=userName)
 		if n:
 			raise ValueError ('Elija un nombre distinto')
+		if not userImg:
+			userImg = 'http://www.eljardindellibro.com/data/foto/autor_anonimo.jpg'
+			
 		u = Usuario()
-		if ((u.long_p(userPass)==True) & (u.short_p(userPass)==True) ):#& (u.confirm_p(userPass) == True)):
+		if ((u.long_p(userPass)==True) & (u.short_p(userPass)==True) & (u.confirm_p(userPass,userCpass) == True)):
 				p = hashlib.new('sha1')
 				p.update(str(userPass))
 				pa = p.hexdigest()
-				usuario = Usuario(name=userName, email=userEmail, password=pa)
+				usuario = Usuario(name=userName, email=userEmail, password=pa, gravatar_img= userImg)
 				usuario.save()
 		else:
 			raise ValueError('Error Pass')
@@ -63,7 +64,7 @@ class Usuario(models.Model):
 		if not userName:
 			raise ValueError('Introduzca nombre de usuario.')
 		if not userPass:
-			raise ValueError('Introduzca contrasena.')
+			raise ValueError('Introduca contrasena.')
 		usuario = Usuario()	
 		usuario = Usuario.objects.filter(name = userName)
 		if usuario:
@@ -81,10 +82,9 @@ class Usuario(models.Model):
 class UserFactory(factory.Factory):
 	FACTORY_FOR = Usuario
 
-	name = factory.sequence(lambda a: 'Marcos{0}'.format(a))
-	email =  factory.sequence(lambda n: 'correo{0}@example.com'.format(n))
+	name = factory.sequence(lambda a: 'Usuario_auto{0}'.format(a))
+	email =  factory.sequence(lambda n: 'correo_auto{0}@etsii.ull.com'.format(n))
 	password = factory.sequence(lambda e: 'random{0}'.format(e))
-
 
 class Micropost(models.Model):
 	texto = models.CharField(max_length= 140)
@@ -95,7 +95,7 @@ class Micropost(models.Model):
 		return self.texto
 		
 	def create_post(self,id_Usuario,text):
-		#print "Id: ", id_Usuario
+		print "Id: ", id_Usuario
 		micro = Micropost(texto=text)
 		micro.save()
 		resumen = ResumenMicro()
@@ -104,9 +104,8 @@ class Micropost(models.Model):
 class MicropostFactory(factory.Factory):
 	FACTORY_FOR = Micropost
 
-	texto = factory.Sequence(lambda n: 'Este es mi post numero{0}'.format(n))
+	texto = factory.sequence(lambda n: 'Este es mi post numero{0}'.format(n))
 
-	
 
 class ResumenMicro(models.Model):
 	id_Usuario = models.ForeignKey(Usuario)
@@ -133,7 +132,10 @@ class Amigo (models.Model):
 		resumen = Amigo( id_Usuario=usuario, id_Amigo=amigo )
 		resumen.save()
 	
-	
+class AmigosFactory(factory.Factory):
+	FACTORY_FOR=Amigo
+	id_Usuario= Usuario.objects.get(id = 1)
+	id_Amigo= Usuario.objects.get(id = (id_Usuario.id + 1))
 	
 	
 	

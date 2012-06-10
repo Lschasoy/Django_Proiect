@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Login in FaceTweet</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -58,16 +58,19 @@
           <a class="brand" href="#">FaceTweet</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Inicio</a></li>
-              <li ><a href="#contact">Registro</a></li>
+              <li class="active"><a>Login</a></li>
+              <li ><a href="/creacion/">Registro</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-  <div class="container">
-      <div class="content">
-          <div class="row">
+  <div class="container-fluid">
+          <div class="hero-unit">
+			  <div class="span2">
+				<img src="static/images/twitter.png" border="4">
+              </div>
+			<div class = "span2">
               <div class="login-form">
                   <h2>Login</h2>
                   <form action="/login_u/" method="post">  {%csrf_token%}
@@ -78,12 +81,16 @@
                           <div class="clearfix">
                               <input type="password" placeholder="Clave" name="qpass">
                           </div>
+                          {% if error %}
+							<span class="label label-important"> Usuario o contraseña erróneo, regístrese </span>
+							<br>
+						  {% endif %}
                           <button class="btn primary" type="submit">Sign in</button>
                       </fieldset>
                   </form>
               </div>
+            </div><!-- /span -->
           </div>
-      </div>
   </div> <!-- /container -->
 </body>
 </html>

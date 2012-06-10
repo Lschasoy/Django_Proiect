@@ -5,7 +5,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>User List FaceTweet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">FaceTweet</a>
+          <a class="brand" href="/session/">FaceTweet</a>
           <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> Username
@@ -45,10 +45,9 @@
           </div>
           <div class="nav-collapse">
             <ul class="nav">
+				<li><a href="/session/">Inicio</a></li>
               <li class="active"><a href="/users/">Usuarios</a></li>
-              <li><a href="#Logout">Logout</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/Logout/">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -61,8 +60,11 @@
        {% for lista in lista_usuarios %}
         <div class="span9">
           <div class="hero-unit">
+			<form id="form2" name="form2"  method="post" action="/seguir/">
             <p>{{lista.name}} - {{lista.email}} -- {{lista.create_at}}
-			<input id="saveForm" name="saveForm" class="btn btn-primary btn-large" type="submit" value="Dejar de Seguir"/></p>               
+			<input id="saveForm" name="saveForm" class="btn btn-primary btn-large" type="submit" value="Seguir"/></p>      
+			<input name="qid" type="hidden" value="{{lista.id}}" /> 
+			</form>                      
           </div>
        
         </div><!--/span-->

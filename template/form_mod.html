@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registo Usuarios FaceTweet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+  </head>
+  <body>	  
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/session/">FaceTweet</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/session/">Inicio</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+  <div class="container">
+	
+  <div class="row">
+	
+	
+  <div class="span8">
+	<div class="alert alert-success">
+	  Inserte los datos correctamente.
+	</div>
+
+	<form class="form-horizontal" id="registerHere" method='post' action='/modificar/'>{%csrf_token%}
+	  <fieldset>
+	    <legend>Actualizacíon de usuario </legend>
+	    <div class="control-group">
+	      <label class="control-label" for="input01">Nombre</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" readonly="readonly" id="user_name" name="qname" rel="popover" data-content="Enter your first and last name." data-original-title="Full Name" value="{{usuario.name}}">
+	        
+	      </div>
+	</div>
+	
+	 <div class="control-group">
+		<label class="control-label" for="input01">Email</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="user_email" name="qemail" rel="popover" data-content="What’s your email address?" data-original-title="Email" value="{{usuario.email}}">
+	       
+	      </div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="input01">Password</label>
+	      <div class="controls">
+	        <input type="password" class="input-xlarge" id="pwd" name="qpass" rel="popover" data-content="6 characters or more! Be tricky" data-original-title="Password" >
+	       
+	      </div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="input01">Confirm Password</label>
+	      <div class="controls">
+	        <input type="password" class="input-xlarge" id="cpwd" name="qcpass" rel="popover" data-content="Re-enter your password for confirmation." data-original-title="Re-Password" >
+	       
+	      </div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="input01">Imagen</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="user_imagen" name="qimg" rel="popover" data-content="Coloca tu imagen de gravatar" data-original-title="Email" value="{{usuario.gravatar_img}}">
+	       
+	      </div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="input01"></label>
+	      <div class="controls">
+	       <button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Actualizar</button>
+	       
+	      </div>
+	
+	</div>
+	
+	
+	   
+	  </fieldset>
+	</form>
+	</div>
+	
+		</div>
+        
+        
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+	 <div class="container">
+        <p>&copy; Grupo5 </p>
+</div>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+	<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+	  <script type="text/javascript">
+	  $(document).ready(function(){
+			$('#registerHere input').hover(function()
+			{
+			$(this).popover('show')
+		});
+			$("#registerHere").validate({
+				rules:{
+					user_name:"required",
+					user_email:{
+							required:true,
+							email: true
+						},
+					pwd:{
+						required:true,
+						minlength: 6
+					},
+					cpwd:{
+						required:true,
+						equalTo: "#pwd"
+					},
+					gender:"required"
+				},
+				messages:{
+					user_name:"Introduzca su nombre de usuario",
+					user_email:{
+						required:"Introduzca una dirección de correo",
+						email:"Introduzca una direccion correo válida"
+					},
+					pwd:{
+						required:"Introduzca su password",
+						minlength:"Pasword minimo de 6 caracteres"
+					},
+					cpwd:{
+						required:"Introduzca su password",
+						equalTo:"Password and Confirm Password must match"
+					},
+					gender:"Select Gender"
+				},
+				errorClass: "help-inline",
+				errorElement: "span",
+				highlight:function(element, errorClass, validClass) {
+					$(element).parents('.control-group').addClass('error');
+				},
+				unhighlight: function(element, errorClass, validClass) {
+					$(element).parents('.control-group').removeClass('error');
+					$(element).parents('.control-group').addClass('success');
+				}
+			});
+		});
+	  </script>
+
+
+  
+
+  </body>
+</html>
+
